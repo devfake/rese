@@ -11,7 +11,7 @@ Readable Session Helper
 ```php
 function session($keys = null)
 {
-  return new Session($name);
+  return new Session($keys);
 }
 ```
 
