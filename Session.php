@@ -31,6 +31,11 @@
      */
     private $keys;
 
+    /**
+     * Need second variable with stored keys you work with.
+     */
+    private $keysForExists;
+
 
     /**
      * Start session if required, get your keys and initialize the variables.
@@ -40,6 +45,7 @@
       if(session_status() == PHP_SESSION_NONE) session_start();
 
       $this->keys = explode($this->seperator, $keys);
+      $this->keysForExists = explode($this->seperator, $keys);
 
       $this->reference = & $_SESSION;
       $this->copy = $_SESSION;
@@ -95,14 +101,13 @@
     public function exists($array = null)
     {
       if( ! $array) $array = $this->copy;
-      $keys = $this->keys;
 
-      $_key = array_shift($keys);
+      $_key = array_shift($this->keysForExists);
 
       foreach($array as $key => & $value) {
-        if(is_array($value) && ! empty($value) && $key == $_key && ! empty($keys)) {
+        if(is_array($value) && ! empty($value) && $key == $_key && ! empty($this->keysForExists)) {
           return $this->exists($value);
-        } elseif($key == $_key && empty($keys)) {
+        } elseif($key == $_key && empty($this->keysForExists)) {
           return true;
         }
       }
