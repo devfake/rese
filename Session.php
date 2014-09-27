@@ -5,7 +5,7 @@
    * Write your sessions in a more readable way. Great for multidimensional sessions.
    *
    * @author Viktor Geringer <devfakeplus@googlemail.com>
-   * @version 1.1.0
+   * @version 1.1.1
    * @license The MIT License (MIT)
    */
   class Session {
@@ -37,7 +37,6 @@
     public function __construct($keys, $seperator)
     {
       if(session_status() == PHP_SESSION_NONE) session_start();
-      $seperator = $seperator;
 
       $this->keys = explode($seperator, $keys);
       $this->keysForExists = $this->keys;
