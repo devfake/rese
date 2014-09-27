@@ -5,7 +5,7 @@
    * Write your sessions in a more readable way. Great for multidimensional sessions.
    *
    * @author Viktor Geringer <devfakeplus@googlemail.com>
-   * @version 1.1.1
+   * @version 1.2.0
    * @license The MIT License (MIT)
    */
   class Session {
@@ -30,6 +30,11 @@
      */
     private $keysForExists;
 
+    /**
+     * Need third variable with stored keys you work with.
+     */
+    private $keysForRemove;
+
 
     /**
      * Start session if required, get your keys and initialize the variables.
@@ -40,6 +45,7 @@
 
       $this->keys = explode($seperator, $keys);
       $this->keysForExists = $this->keys;
+      $this->keysForRemove = $this->keys;
 
       $this->reference = & $_SESSION;
       $this->copy = $_SESSION;
@@ -140,10 +146,10 @@
      */
     private function removeKey( & $array)
     {
-      $_key = array_shift($this->keys);
+      $_key = array_shift($this->keysForRemove);
 
       foreach($array as $key => & $value) {
-        if(is_array($value) && $key == $_key && ! empty($this->keys)) {
+        if(is_array($value) && $key == $_key && ! empty($this->keysForRemove)) {
           return $this->removeKey($value);
         } else {
           if($key == $_key) {
