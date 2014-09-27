@@ -11,7 +11,7 @@ Readable Session Helper
 ```php
 function session($keys = null)
 {
-  return new Session($keys);
+  return new Session($keys, '.');
 }
 ```
 
@@ -46,8 +46,9 @@ session('key.and.more.deeply')->remove();
 session()->destroy();
 ```
 
-You can change the separation by edit the $seperator property in the class file.
-Like '->' or '/':
+You can change the separation by edit the second parameter for the class call in the helper function.
+Change to whatever you like (e.g '->' or '/'):
+
 ```php
 session('key->and->other')->get();
 session('key/and/other')->get();

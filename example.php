@@ -1,15 +1,12 @@
 <?php
 
-  // Need for example to show the first $_SESSION.
-  session_start();
-
   // Load the wrapper class.
   require 'Session.php';
 
   // Create helper function.
   function session($keys = null)
   {
-    return new Session($keys);
+    return new Session($keys, '.');
   }
 
   // Helper for example.

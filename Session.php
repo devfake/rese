@@ -5,16 +5,10 @@
    * Write your sessions in a more readable way. Great for multidimensional sessions.
    *
    * @author Viktor Geringer <devfakeplus@googlemail.com>
-   * @version 1.0.0
+   * @version 1.1.0
    * @license The MIT License (MIT)
    */
   class Session {
-
-    /**
-     * The seperation for multidimensional sessions.
-     * Change to whatever you like.
-     */
-    private $seperator = '.';
 
     /**
      * The original reference for the $_SESSION array.
@@ -40,12 +34,13 @@
     /**
      * Start session if required, get your keys and initialize the variables.
      */
-    public function __construct($keys)
+    public function __construct($keys, $seperator)
     {
       if(session_status() == PHP_SESSION_NONE) session_start();
+      $seperator = $seperator;
 
-      $this->keys = explode($this->seperator, $keys);
-      $this->keysForExists = explode($this->seperator, $keys);
+      $this->keys = explode($seperator, $keys);
+      $this->keysForExists = $this->keys;
 
       $this->reference = & $_SESSION;
       $this->copy = $_SESSION;
