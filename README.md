@@ -8,6 +8,8 @@ Extracted from [vume](https://github.com/devfake/vume) framework.
 
 ### Get started
 
+Check the [example](https://github.com/devfake/Readable-Session-Helper/blob/master/example.php) file.
+
 **Create a helper function (if you like):**
 
 ```php
