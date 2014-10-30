@@ -34,14 +34,14 @@
 
     // Show empty $_SESSION:
     echo '<h4>Empty session:</h4>';
-    pp($_SESSION);
+    pp(session()->get());
 
     // Create new Session:
     session('Stark')->set('Winter Is Coming');
 
     // Show $_SESSION with just created key/value:
     echo '<h4>Session with new value:</h4>';
-    pp($_SESSION);
+    pp(session()->get());
 
     // Get a session.
     echo '<h4>Get a session by key:</h4>';
@@ -52,14 +52,14 @@
 
     // Show $_SESSION with just created nested key/value:
     echo '<h4>Add nested session:</h4>';
-    pp($_SESSION);
+    pp(session()->get());
 
     // Remove key from nested session ('nothing' will be deleted):
     session('who.knows.nothing')->remove();
 
     // Show $_SESSION with without 'nothing':
     echo '<h4>Show session with deleted key:</h4>';
-    pp($_SESSION);
+    pp(session()->get());
 
     // Check if value exists:
     echo '<h4>Check if "Stark" exists:</h4>';

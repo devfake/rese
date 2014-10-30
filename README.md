@@ -22,6 +22,9 @@ function session($keys = null)
 **Working with the new helper:**
 
 ```php
+// $_SESSION
+session()->get();
+
 // $_SESSION['key'];
 session('key')->get();
 

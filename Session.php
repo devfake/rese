@@ -5,7 +5,7 @@
    * Write your sessions in a more readable way. Great for multidimensional sessions.
    *
    * @author Viktor Geringer <devfakeplus@googlemail.com>
-   * @version 1.2.0
+   * @version 1.3.0
    * @license The MIT License (MIT)
    */
   class Session {
@@ -43,7 +43,7 @@
     {
       if(session_status() == PHP_SESSION_NONE) session_start();
 
-      $this->keys = explode($seperator, $keys);
+      $this->keys = $keys ? explode($seperator, $keys) : null;
       $this->keysForExists = $this->keys;
       $this->keysForRemove = $this->keys;
 
@@ -53,10 +53,13 @@
 
     /**
      * Get the requested session. If key does not exists, return a default value.
+     * If no key set, return complete the $_SESSION array.
      */
     public function get($default = null)
     {
-      if($this->exists()) {
+      if( ! $this->keys) {
+        return $_SESSION;
+      } elseif($this->exists()) {
         $this->createDeepSession();
 
         return $this->reference;
