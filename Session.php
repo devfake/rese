@@ -53,7 +53,7 @@
 
     /**
      * Get the requested session. If key does not exists, return a default value.
-     * If no key set, return complete the $_SESSION array.
+     * If no key are passed, return the complete $_SESSION array.
      */
     public function get($default = null)
     {
