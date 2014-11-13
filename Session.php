@@ -5,7 +5,7 @@
    * Write your sessions in a more readable way. Great for multidimensional sessions.
    *
    * @author Viktor Geringer <devfakeplus@googlemail.com>
-   * @version 1.3.0
+   * @version 1.3.1
    * @license The MIT License (MIT)
    */
   class Session {
@@ -35,7 +35,6 @@
      */
     private $keysForRemove;
 
-
     /**
      * Start session if required, get your keys and initialize the variables.
      */
@@ -59,7 +58,9 @@
     {
       if( ! $this->keys) {
         return $_SESSION;
-      } elseif($this->exists()) {
+      }
+
+      if($this->exists()) {
         $this->createDeepSession();
 
         return $this->reference;
@@ -110,7 +111,9 @@
       foreach($array as $key => & $value) {
         if(is_array($value) && ! empty($value) && $key == $_key && ! empty($this->keysForExists)) {
           return $this->exists($value);
-        } elseif($key == $_key && empty($this->keysForExists)) {
+        }
+
+        if($key == $_key && empty($this->keysForExists)) {
           return true;
         }
       }
@@ -154,10 +157,10 @@
       foreach($array as $key => & $value) {
         if(is_array($value) && $key == $_key && ! empty($this->keysForRemove)) {
           return $this->removeKey($value);
-        } else {
-          if($key == $_key) {
-            unset($array[$key]);
-          }
+        }
+
+        if($key == $_key) {
+          unset($array[$key]);
         }
       }
     }
