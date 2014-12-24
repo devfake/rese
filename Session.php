@@ -5,7 +5,7 @@
    * Write your sessions in a more readable way. Great for multidimensional sessions.
    *
    * @author Viktor Geringer <devfakeplus@googlemail.com>
-   * @version 1.3.1
+   * @version 1.4.0
    * @license The MIT License (MIT)
    */
   class Session {
@@ -75,7 +75,6 @@
     public function set($value)
     {
       $this->createDeepSession();
-
       $this->reference = $value;
     }
 
@@ -97,6 +96,14 @@
     public function remove()
     {
       return $this->removeKey($_SESSION);
+    }
+
+    /**
+     * Alias for remove().
+     */
+    public function delete()
+    {
+      return $this->remove();
     }
 
     /**
@@ -138,6 +145,26 @@
     }
 
     /**
+     * Destroy complete session.
+     *
+     * http://stackoverflow.com/questions/3948230/best-way-to-completely-destroy-a-session-even-if-the-browser-is-not-closed
+     */
+    public function destroy()
+    {
+      $_SESSION = array();
+
+      if(ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+          $params["path"], $params["domain"],
+          $params["secure"], $params["httponly"]
+        );
+      }
+
+      session_destroy();
+    }
+
+    /**
      * Creates dynamic a deep session.
      */
     private function createDeepSession()
@@ -163,25 +190,5 @@
           unset($array[$key]);
         }
       }
-    }
-
-    /**
-     * Destroy complete session.
-     *
-     * http://stackoverflow.com/questions/3948230/best-way-to-completely-destroy-a-session-even-if-the-browser-is-not-closed
-     */
-    public function destroy()
-    {
-      $_SESSION = array();
-
-      if(ini_get("session.use_cookies")) {
-        $params = session_get_cookie_params();
-        setcookie(session_name(), '', time() - 42000,
-          $params["path"], $params["domain"],
-          $params["secure"], $params["httponly"]
-        );
-      }
-
-      session_destroy();
     }
   }

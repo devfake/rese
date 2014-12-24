@@ -48,6 +48,8 @@ session('key')->is('value');
 
 // unset($_SESSION['key']['and']['more']['deeply']);
 session('key.and.more.deeply')->remove();
+// Alias for remove():
+session('key.and.more.deeply')->delete();
 
 // Destroy complete session:
 session()->destroy();

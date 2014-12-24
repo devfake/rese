@@ -56,6 +56,7 @@
 
     // Remove key from nested session ('nothing' will be deleted):
     session('who.knows.nothing')->remove();
+    // or session('who.knows.nothing')->delete();
 
     // Show $_SESSION with without 'nothing':
     echo '<h4>Show session with deleted key:</h4>';
