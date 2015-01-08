@@ -1,7 +1,7 @@
 Readable Session Helper
 =======================
 
-**Write your sessions in a more readable way. Great for multidimensional sessions.**
+**Write your php sessions in a more readable way. Great for multidimensional sessions.**
 
 Extracted from [vume](https://github.com/devfake/vume) framework.
 
