@@ -2,7 +2,7 @@
 
   /**
    * Session Wrapper Class.
-   * Write your sessions in a more readable way. Great for multidimensional sessions.
+   * Write your php sessions in a more readable way. Great for multidimensional sessions.
    *
    * @author Viktor Geringer <devfakeplus@googlemail.com>
    * @version 1.4.0
