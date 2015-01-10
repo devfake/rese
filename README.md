@@ -55,7 +55,7 @@ session('key.and.more.deeply')->delete();
 session()->destroy();
 ```
 
-You can change the separation by edit the second parameter for the class call in the helper function.
+You can change the separation by add a second argument for the class call in the helper function.
 Change to whatever you like (e.g '->' or '/'):
 
 ```php
