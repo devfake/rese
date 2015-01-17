@@ -5,7 +5,6 @@ Readable Session Helper
 
 Extracted from [vume](https://github.com/devfake/vume) framework.
 
-
 ### Get started
 
 Check the [example](https://github.com/devfake/Readable-Session-Helper/blob/master/example.php) file.
@@ -18,6 +17,8 @@ function session($keys = null)
   return new Session($keys, '.');
 }
 ```
+
+Composer package is in work.
 
 **Working with the new helper:**
 
