@@ -1,0 +1,21 @@
+{
+  "name": "devfake/rese",
+  "description": "Write your php sessions in a more readable way.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "devfake",
+      "email": "devfakeplus@googlemail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Devfake\\Rese\\": "src/"
+    }
+  }
+}
+

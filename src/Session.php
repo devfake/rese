@@ -1,11 +1,13 @@
 <?php
 
+  namespace Devfake\Rese;
+
   /**
    * Session Wrapper Class.
    * Write your php sessions in a more readable way. Great for multidimensional sessions.
    *
    * @author Viktor Geringer <devfakeplus@googlemail.com>
-   * @version 1.4.0
+   * @version 1.5.0
    * @license The MIT License (MIT)
    */
   class Session {

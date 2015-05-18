@@ -9,16 +9,31 @@ Extracted from [vume](https://github.com/devfake/vume) framework.
 
 Check the [example](https://github.com/devfake/Readable-Session-Helper/blob/master/example.php) file.
 
+##### Requirements 
+
+* PHP 5.3+
+* Composer
+
+##### Install
+
+The easiest way to install Rese is via [Composer](https://getcomposer.org/). Add this to your `composer.json` file and run `$ composer update`:
+
+```json
+{
+  "require": {
+    "devfake/rese": "dev-master"
+  }
+}
+```
+
 **Create a helper function (if you like):**
 
 ```php
 function session($keys = null)
 {
-  return new Session($keys, '.');
+  return new Devfake\Rese\Session($keys, '.');
 }
 ```
-
-Composer package is in work.
 
 **Working with the new helper:**
 

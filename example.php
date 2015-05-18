@@ -1,7 +1,8 @@
 <?php
 
-  // Load the wrapper class.
-  require 'Session.php';
+  require_once __DIR__ . '/vendor/autoload.php';
+
+  use Devfake\Rese\Session;
 
   // Create helper function.
   function session($keys = null)
