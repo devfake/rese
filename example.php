@@ -1,13 +1,12 @@
 <?php
 
+  // Load Composer.
   require_once __DIR__ . '/vendor/autoload.php';
-
-  use Devfake\Rese\Session;
 
   // Create helper function.
   function session($keys = null)
   {
-    return new Session($keys, '.');
+    return new Devfake\Rese\Session($keys, '.');
   }
 
   // Helper for example.
